@@ -3,6 +3,7 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+*.yml
 .git
 ./_release/.git
 .DS_Store
