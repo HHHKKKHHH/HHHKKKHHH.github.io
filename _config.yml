@@ -5,7 +5,7 @@
 # Site
 title: KH的无聊Playground 
 subtitle: 专注摸鱼30年
-description: 一个国内辣鸡985在读研究生的无聊记录，啥都想学啥都学不会
+description: 一个国内辣鸡985在读研究生的无聊记录，啥都想学啥都学不会。
 keywords: ArtificialIntelligence MachineLearning 
 author: kaihongH
 language: zh-CN
@@ -114,7 +114,7 @@ theme: hexo-theme-Claudia
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: https://github.com/HHHKKKHHH/HHHKKKHHH.github.io.git
-  branch: release
-  message: "release site version in {{ now('YYYY-MM-DD HH:mm:ss') }}"
+  - type: git
+    repo: https://github.com/HHHKKKHHH/HHHKKKHHH.github.io.git
+    branch: release
+    message: "release site version in {{ now('YYYY-MM-DD HH:mm:ss') }}"
