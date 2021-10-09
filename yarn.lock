@@ -1030,6 +1030,14 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+"hexo-auto-category@^0.2.1":
+  "integrity" "sha1-gnh80FiqjJujxR405Htsu7Ly044="
+  "resolved" "https://registry.nlark.com/hexo-auto-category/download/hexo-auto-category-0.2.1.tgz"
+  "version" "0.2.1"
+  dependencies:
+    "hexo-front-matter" "^2.0.0"
+    "hexo-fs" "^3.1.0"
+
 "hexo-cli@^4.0.0":
   "integrity" "sha1-S7K/EaMPrmAfL1OsDLgz/uMYdkk="
   "resolved" "https://registry.nlark.com/hexo-cli/download/hexo-cli-4.3.0.tgz"

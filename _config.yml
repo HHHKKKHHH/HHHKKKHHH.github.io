@@ -118,3 +118,8 @@ deploy:
     repo: https://github.com/HHHKKKHHH/HHHKKKHHH.github.io.git
     branch: release
     message: "release site version in {{ now('YYYY-MM-DD HH:mm:ss') }}"
+
+
+auto_category:
+ enable: true
+ depth: 4
