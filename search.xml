@@ -4,18 +4,43 @@
   
     
     <entry>
-      <title>懒人的 TODO LIST</title>
-      <link href="/2021/10/09/%E6%9D%82%E8%B0%88/%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST/"/>
-      <url>/2021/10/09/%E6%9D%82%E8%B0%88/%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST/</url>
+      <title>前端框架学习思路总结</title>
+      <link href="/2021/10/10/%E5%B7%A5%E7%A8%8B%E5%90%91-%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93-10/"/>
+      <url>/2021/10/10/%E5%B7%A5%E7%A8%8B%E5%90%91-%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93-10/</url>
       
-        <content type="html"><![CDATA[<p><img src="/images/bg-2.png" alt="img"></p><blockquote><p>本文仅用来鞭策懒惰的自己</p><p>一切以最终想法为准.jpg</p></blockquote><h1 id="工程向"><a href="#工程向" class="headerlink" title="工程向"></a>工程向</h1><ul><li><input disabled="" type="checkbox"> 前端框架通用学习思路</li><li><input disabled="" type="checkbox"> 基于 provider 的 flutter 应用封装</li><li><input disabled="" type="checkbox"> react hook 的组件抽象总结</li></ul><h1 id="科研向"><a href="#科研向" class="headerlink" title="科研向"></a>科研向</h1><ul><li><input disabled="" type="checkbox"> 伪装目标识别综述</li><li><input disabled="" type="checkbox"> transformer 在扁平数据 embedding 任务上的应用尝试</li><li><input disabled="" type="checkbox"> 一个失败的质谱仪物质分类孪生网络</li></ul>]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 工程向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端工程 </tag>
+            
+            <tag> 学习思路 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>懒人的 TODO LIST</title>
+      <link href="/2021/10/09/%E6%9D%82%E8%B0%88-%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST-10/"/>
+      <url>/2021/10/09/%E6%9D%82%E8%B0%88-%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST-10/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/bg-1.png" alt="img"></p><blockquote><p>本文仅用来鞭策懒惰的自己</p><p>一切以最终想法为准.jpg</p></blockquote><h1 id="工程向"><a href="#工程向" class="headerlink" title="工程向"></a>工程向</h1><ul><li><input disabled="" type="checkbox"> 前端框架通用学习思路</li><li><input disabled="" type="checkbox"> 基于 provider 的 flutter 应用封装</li><li><input disabled="" type="checkbox"> react hook 的组件抽象总结</li></ul><h1 id="科研向"><a href="#科研向" class="headerlink" title="科研向"></a>科研向</h1><ul><li><input disabled="" type="checkbox"> 伪装目标识别综述</li><li><input disabled="" type="checkbox"> transformer 在扁平数据 embedding 任务上的应用尝试</li><li><input disabled="" type="checkbox"> 一个失败的质谱仪物质分类孪生网络</li></ul>]]></content>
       
       
       <categories>
           
           <category> 杂谈 </category>
-          
-          <category> 懒人的-TODO-LIST-10 </category>
           
       </categories>
       
@@ -32,8 +57,8 @@
     
     <entry>
       <title>初中人工智能教程 头脑风暴</title>
-      <link href="/2021/10/05/AI/%E6%A6%82%E8%AE%BA/%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4/"/>
-      <url>/2021/10/05/AI/%E6%A6%82%E8%AE%BA/%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4/</url>
+      <link href="/2021/10/05/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E6%A6%82%E8%AE%BA-%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4-10/"/>
+      <url>/2021/10/05/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E6%A6%82%E8%AE%BA-%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4-10/</url>
       
         <content type="html"><![CDATA[<p>初中学生对于纯理论知识的接收能力有限，应该主要以寓教于乐的形式进行教学，对于知识点的讲解需要主要以实操项目，分步带领学思考和探究内容。</p><h2 id="项目式（PBL）教学法"><a href="#项目式（PBL）教学法" class="headerlink" title="项目式（PBL）教学法"></a>项目式（PBL）教学法</h2><p>项目教学法（Project-based Learning），简称PBL，它是通过“项目”的形式进行教学。在老师的指导下，将一个相对独立的项目交由学生自己处理：收集信息、设计方案、实施项目和最终评价。</p><p>我们通过使用项目教学法开展人工智能课程，先练后讲，先学后教，强调学生的自主学习，主动参与，从尝试入手，从练习开始，调动学生学习的主动性、创造性、积极性等。</p><h2 id="思维导图开展课程"><a href="#思维导图开展课程" class="headerlink" title="思维导图开展课程"></a>思维导图开展课程</h2><p>思维导图，是表达发散性思维的有效图形思维工具，它能充分运用左右脑的机能，开启人类大脑的无限潜能，因此思维导图具有人类思维的强大功能。</p><p>我们的学生，在受提问表达对某个问题或事件的观点看法时，往往回答是“我们什么都想不到”；部分语文水平不好的学生，则非常害怕写作文，总是“大脑一片空白”……是不是都没有想法呢？其实不然，只是缺乏提取和组织想法的方法工具——思维导图，则可以帮助我们。学生通过一定的思维训练后，可以清晰的表达想法、创造思维，激发头脑风暴，让作品富有创意和个性。</p><h2 id="激发主观能动性"><a href="#激发主观能动性" class="headerlink" title="激发主观能动性"></a>激发主观能动性</h2><p>在课程实践过程中要力求让学生发挥主观能动性，防止过多限制任务进行方向或给予过多主观指引。在课程安排中，让学生进行分组，每人根据不同的项目，自主轮流担任‘司令（产品经理）’、‘通信员（数据信息收集分析反馈）’、‘小兵（程序编写、硬件搭建）’等角色，通过分工合作把项目进行分解分析，创意头脑风暴（思维导图）、数据整理、软硬件的设计，从而完成项目，完成作品。</p><h1 id="组织架构想法"><a href="#组织架构想法" class="headerlink" title="组织架构想法"></a>组织架构想法</h1><p>以激发兴趣，锻炼计算机思维为主体，通过简易项目传输核心思想，不求全面地知识体系教学。<br>{:.info}</p><h2 id="从理论基础到创新实践"><a href="#从理论基础到创新实践" class="headerlink" title="从理论基础到创新实践"></a>从理论基础到创新实践</h2><ol><li>基本概念</li><li>不同领域核心思想*N<ol><li>小项目实践</li><li>现实应用</li></ol></li><li>不同应用领域*N</li><li>创新实践项目</li><li>安全伦理，未来畅想</li></ol><h2 id="多个具体应用领域切分"><a href="#多个具体应用领域切分" class="headerlink" title="多个具体应用领域切分"></a>多个具体应用领域切分</h2><p>很难避免 “机器学习甚至深度学习 约等于 人工智能” 的错误，但是好像大多数基础教学都默认这一个错误的概念</p><ol><li>基本概念</li><li>具体领域*N<ol><li>核心概念</li><li>简单项目实践</li><li>现实应用</li></ol></li><li>安全伦理，未来畅想</li></ol><h2 id="分两册两个实例"><a href="#分两册两个实例" class="headerlink" title="分两册两个实例"></a>分两册两个实例</h2><ol><li><p>具体实例1</p><ol><li>实例介绍</li><li>核心思想</li><li>实例实践</li><li>拓展</li></ol></li><li><p>具体实例2</p><ol><li>实例介绍</li><li>核心思想</li><li>实例实践</li><li>拓展</li></ol></li></ol><blockquote><p>ref: <a href="http://www.scicat.cn/p/20210530/5254617.html">http://www.scicat.cn/p/20210530/5254617.html</a></p><p>ref: <a href="http://47.95.242.172/thesis/view/4790384">http://47.95.242.172/thesis/view/4790384</a></p></blockquote>]]></content>
       
