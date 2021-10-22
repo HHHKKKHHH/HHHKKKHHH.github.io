@@ -4,10 +4,9 @@ tags:
   - 杂七杂八
 categories:
   - 杂谈
-  - 懒人的-TODO-LIST-10
 date: 2021-10-09 21:33:15
 ---
-![img](/images/bg-2.png)
+![img](/images/bg-1.png)
 
 > 本文仅用来鞭策懒惰的自己
 >

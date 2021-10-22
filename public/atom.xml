@@ -6,7 +6,7 @@
   <link href="https://hhhkkkhhh.github.io/atom.xml" rel="self"/>
   
   <link href="https://hhhkkkhhh.github.io/"/>
-  <updated>2021-10-09T13:38:47.776Z</updated>
+  <updated>2021-10-10T15:40:33.156Z</updated>
   <id>https://hhhkkkhhh.github.io/</id>
   
   <author>
@@ -17,18 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端框架学习 -- 封装 is all you need</title>
+    <link href="https://hhhkkkhhh.github.io/2021/10/10/%E5%B7%A5%E7%A8%8B%E5%90%91-%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93-10/"/>
+    <id>https://hhhkkkhhh.github.io/2021/10/10/%E5%B7%A5%E7%A8%8B%E5%90%91-%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93-10/</id>
+    <published>2021-10-10T05:25:30.000Z</published>
+    <updated>2021-10-10T15:40:33.156Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文提供一个现代前端框架的学习与理解思路，从 组件封装层次 切入，加快从看文档到看懂文档到实际上手的过程。 </p><span id="more"></span><div class="admonition note"><p class="admonition-title">写在前面</p><p>本思路主要应用于<code>以状态管理为核心</code>的前端框架，包括但不限于 <code>react</code>, <code>vue</code>等 web 框架 以及 <code>flutter</code>, <code>swift</code> 等非 web 框架</p><p>对于<code>框架对应编程语言的学习</code>暂时不在讨论范围内，不过进行多讨论</p><p>标题如有雷同纯属巧合，内容为个人拙见轻喷（🐶</p></div><h1 id="封装-is-all-you-need"><a href="#封装-is-all-you-need" class="headerlink" title="封装 is all you need"></a>封装 is all you need</h1><p>笔者认为，抛开编程语言细节，对于一个新前端框架的学习思路不外乎以下两步：</p><ol><li>三个层次组件的封装方法</li><li>三个层次组件相互嵌套的方法</li></ol><p>一般的前端项目都存在类似“组件树”的概念，不同的组件在嵌套的父子关系中构建起整个应用，具体思路见下文</p><div class="admonition info"><p>以老土的盖房子做比喻，封装组件就如构造盖房子的建筑材料，不同层次的封装就如水泥钢筋等不同材料，而组件的嵌套是材料使用的流程</p></div><h1 id="什么是封装？"><a href="#什么是封装？" class="headerlink" title="什么是封装？"></a>什么是封装？</h1><p>在正式介绍学习思路之前，首先要先总结下前端开发(非限定前端框架)中的“组件封装”</p><blockquote><p>封装，即隐藏对象的属性和实现细节，仅对外公开接口，控制在程序中属性的读和修改的访问级别；将抽象得到的数据和行为（或功能）相结合，形成一个有机的整体</p><footer><strong>wiki 百科</strong></footer></blockquote><p>在开发过程中，个人认为“封装”的意义关键在于“复用”，是<code>面向对象编程</code>思想的一种表层体现。</p><p>换而言之，如果一个项目的开发需求中几乎不存在可复用的“部分”，那么可以完全抛弃“封装”的概念，采用<code>面向过程编程</code>的思路<br>但如果同一个“部分”不断出现在项目中，那我们应该考虑对他进行抽象其封装来减少维护难度，提高代码鲁棒性。</p><p>具体到前端开发中的封装组件，往往是 UI 和交互逻辑的抽象结合体，典型的例子有如 <a href="https://material.io/components/lists">material 提供的 List 组件</a>: </p><ol><li>提供了统一的样式渲染模版</li><li>透明化内部交互逻辑以及样式渲染</li><li>具有一定的样式或逻辑自定义 API</li></ol><p>当然，简单功能的纯 UI 组件封装也是十分常见，典型的例子有如 <a href="https://ant.design/components/typography-cn/">ant design 提供的 Typography 组件</a></p><p>而纯逻辑封装对于开源资源则较为少见，一是部分前端框架并不提供完全剥离 UI 而只抽象逻辑的封装能力（说的就是你，vue2）；二是单纯的逻辑封装往往意味着与业务逻辑的强耦合关系，很难跨项目通用；三是对于纯逻辑组件意味着更复杂的项目抽象层次与更高的心智成本，大多数时候懒是第一阻力（🐶</p><p>对于纯逻辑封装的典型例子，我想在 <a href="">react hook 的抽象组件封装</a>中单独探讨</p><div class="admonition info"><p>需要注意的是，这里提到的 UI 与 逻辑的抽象封装仅仅只是对封装概念的举例，并不是“封装层次”的总结。笔者想表达的封装层次区分在下一节中介绍</p></div><h1 id="封装的三个层次"><a href="#封装的三个层次" class="headerlink" title="封装的三个层次"></a>封装的三个层次</h1><p>学习思路的第一步，了解待学习前端框架三个层次组件的封装方法。下面将结合具体框架中的封装例子从“低层次”到“高层次”分别介绍三种封装层次<br>以下代码举例将主要为 typescript 版本的 react 与 flutter 框架中的代码</p><div class="admonition info"><p>三个层次的名称系笔者自己 yy，可能与专业术语撞车，可能不够贴切，还请见谅</p></div><h2 id="静态组件"><a href="#静态组件" class="headerlink" title="静态组件"></a>静态组件</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote><p>无参数且本身在生命周期中不会也不能变化的组件</p></blockquote><p>作为最低层次的封装，静态组件的概念较为简单。从编程语言角度，其实<code>常量</code>本身也是一种静态组件。<br>这样的封装看似意义不大，但是回到上文对于封装必要性的描述，静态组件可以指代一个全局使用的“颜色”，一个全局默认“参数”或是一个重复使用的“样式”等等<br>因此，在大多数前端框架的大多数使用场景中，静态组件的声明和使用与变量无异。</p><h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><pre><div class="caption"><span>react</span></div><code class="hljs typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> primaryColor: <span class="hljs-built_in">string</span>  = <span class="hljs-string">&quot;#13acd9&quot;</span>  <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> breakpoint = <span class="hljs-string">&quot;1000px&quot;</span> <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> standardSpace = <span class="hljs-function">()=&gt;</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&#123;&#123;width:</span>&quot;<span class="hljs-attr">2rem</span>&quot;,<span class="hljs-attr">height:</span>&quot;<span class="hljs-attr">1rem</span>&quot;&#125;&#125;/&gt;</span></span></code></pre><pre><div class="caption"><span>flutter</span></div><code class="hljs dart">Color primaryBlue = <span class="hljs-keyword">new</span> Color(<span class="hljs-number">0xFF13ACD9</span>);Color primaryRed = <span class="hljs-keyword">new</span> Color(<span class="hljs-number">0xFFFF8585</span>);Color primaryGreen = <span class="hljs-keyword">new</span> Color(<span class="hljs-number">0xFF27AE60</span>);Divider standardDivider = <span class="hljs-keyword">new</span> Divider(  height: <span class="hljs-number">2</span>,  color: Color(<span class="hljs-number">0x15000000</span>),);</code></pre><h2 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h2><blockquote><p>有参数且本身在生命周期中不会也不能变化的组件</p></blockquote><p>在代码层次上，相比静态组件，函数组件本身不再是完全不变的，在实例化时可以接受参数。<br>但是需要注意的是，顾名思义，函数组件在实例化之后便无法发生变化（如函数执行完成后便退出执行栈，再次执行已经是另一个实例了）</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本文提供一个现代前端框架的学习与理解思路，从 组件封装层次 切入，加快从看文档到看懂文档到实际上手的过程。 &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工程向" scheme="https://hhhkkkhhh.github.io/categories/%E5%B7%A5%E7%A8%8B%E5%90%91/"/>
+    
+    
+    <category term="前端工程" scheme="https://hhhkkkhhh.github.io/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/"/>
+    
+    <category term="学习思路" scheme="https://hhhkkkhhh.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%80%9D%E8%B7%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>懒人的 TODO LIST</title>
-    <link href="https://hhhkkkhhh.github.io/2021/10/09/%E6%9D%82%E8%B0%88/%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST/"/>
-    <id>https://hhhkkkhhh.github.io/2021/10/09/%E6%9D%82%E8%B0%88/%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST/</id>
+    <link href="https://hhhkkkhhh.github.io/2021/10/09/%E6%9D%82%E8%B0%88-%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST-10/"/>
+    <id>https://hhhkkkhhh.github.io/2021/10/09/%E6%9D%82%E8%B0%88-%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST-10/</id>
     <published>2021-10-09T13:33:15.000Z</published>
-    <updated>2021-10-09T13:38:47.776Z</updated>
+    <updated>2021-10-10T05:30:21.235Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/bg-2.png" alt="img"></p><blockquote><p>本文仅用来鞭策懒惰的自己</p><p>一切以最终想法为准.jpg</p></blockquote><h1 id="工程向"><a href="#工程向" class="headerlink" title="工程向"></a>工程向</h1><ul><li><input disabled="" type="checkbox"> 前端框架通用学习思路</li><li><input disabled="" type="checkbox"> 基于 provider 的 flutter 应用封装</li><li><input disabled="" type="checkbox"> react hook 的组件抽象总结</li></ul><h1 id="科研向"><a href="#科研向" class="headerlink" title="科研向"></a>科研向</h1><ul><li><input disabled="" type="checkbox"> 伪装目标识别综述</li><li><input disabled="" type="checkbox"> transformer 在扁平数据 embedding 任务上的应用尝试</li><li><input disabled="" type="checkbox"> 一个失败的质谱仪物质分类孪生网络</li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/bg-1.png" alt="img"></p><blockquote><p>本文仅用来鞭策懒惰的自己</p><p>一切以最终想法为准.jpg</p></blockquote><h1 id="工程向"><a href="#工程向" class="headerlink" title="工程向"></a>工程向</h1><ul><li><input disabled="" type="checkbox"> 前端框架通用学习思路</li><li><input disabled="" type="checkbox"> 基于 provider 的 flutter 应用封装</li><li><input disabled="" type="checkbox"> react hook 的组件抽象总结</li></ul><h1 id="科研向"><a href="#科研向" class="headerlink" title="科研向"></a>科研向</h1><ul><li><input disabled="" type="checkbox"> 伪装目标识别综述</li><li><input disabled="" type="checkbox"> transformer 在扁平数据 embedding 任务上的应用尝试</li><li><input disabled="" type="checkbox"> 一个失败的质谱仪物质分类孪生网络</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/bg-2.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/bg-1.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文仅用来鞭策懒惰的自己&lt;/p&gt;
 &lt;p&gt;一切以最终想法为准.jpg&lt;/p&gt;
@@ -40,8 +63,6 @@
     
     <category term="杂谈" scheme="https://hhhkkkhhh.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
-    <category term="懒人的-TODO-LIST-10" scheme="https://hhhkkkhhh.github.io/categories/%E6%9D%82%E8%B0%88/%E6%87%92%E4%BA%BA%E7%9A%84-TODO-LIST-10/"/>
-    
     
     <category term="杂七杂八" scheme="https://hhhkkkhhh.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
     
@@ -49,10 +70,10 @@
   
   <entry>
     <title>初中人工智能教程 头脑风暴</title>
-    <link href="https://hhhkkkhhh.github.io/2021/10/05/AI/%E6%A6%82%E8%AE%BA/%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4/"/>
-    <id>https://hhhkkkhhh.github.io/2021/10/05/AI/%E6%A6%82%E8%AE%BA/%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4/</id>
+    <link href="https://hhhkkkhhh.github.io/2021/10/05/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E6%A6%82%E8%AE%BA-%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4-10/"/>
+    <id>https://hhhkkkhhh.github.io/2021/10/05/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E6%A6%82%E8%AE%BA-%E5%88%9D%E4%B8%AD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%95%99%E7%A8%8B-%E5%A4%B4%E8%84%91%E9%A3%8E%E6%9A%B4-10/</id>
     <published>2021-10-05T07:55:51.000Z</published>
-    <updated>2021-10-09T04:36:11.885Z</updated>
+    <updated>2021-10-10T05:33:36.916Z</updated>
     
     <content type="html"><![CDATA[<p>初中学生对于纯理论知识的接收能力有限，应该主要以寓教于乐的形式进行教学，对于知识点的讲解需要主要以实操项目，分步带领学思考和探究内容。</p><h2 id="项目式（PBL）教学法"><a href="#项目式（PBL）教学法" class="headerlink" title="项目式（PBL）教学法"></a>项目式（PBL）教学法</h2><p>项目教学法（Project-based Learning），简称PBL，它是通过“项目”的形式进行教学。在老师的指导下，将一个相对独立的项目交由学生自己处理：收集信息、设计方案、实施项目和最终评价。</p><p>我们通过使用项目教学法开展人工智能课程，先练后讲，先学后教，强调学生的自主学习，主动参与，从尝试入手，从练习开始，调动学生学习的主动性、创造性、积极性等。</p><h2 id="思维导图开展课程"><a href="#思维导图开展课程" class="headerlink" title="思维导图开展课程"></a>思维导图开展课程</h2><p>思维导图，是表达发散性思维的有效图形思维工具，它能充分运用左右脑的机能，开启人类大脑的无限潜能，因此思维导图具有人类思维的强大功能。</p><p>我们的学生，在受提问表达对某个问题或事件的观点看法时，往往回答是“我们什么都想不到”；部分语文水平不好的学生，则非常害怕写作文，总是“大脑一片空白”……是不是都没有想法呢？其实不然，只是缺乏提取和组织想法的方法工具——思维导图，则可以帮助我们。学生通过一定的思维训练后，可以清晰的表达想法、创造思维，激发头脑风暴，让作品富有创意和个性。</p><h2 id="激发主观能动性"><a href="#激发主观能动性" class="headerlink" title="激发主观能动性"></a>激发主观能动性</h2><p>在课程实践过程中要力求让学生发挥主观能动性，防止过多限制任务进行方向或给予过多主观指引。在课程安排中，让学生进行分组，每人根据不同的项目，自主轮流担任‘司令（产品经理）’、‘通信员（数据信息收集分析反馈）’、‘小兵（程序编写、硬件搭建）’等角色，通过分工合作把项目进行分解分析，创意头脑风暴（思维导图）、数据整理、软硬件的设计，从而完成项目，完成作品。</p><h1 id="组织架构想法"><a href="#组织架构想法" class="headerlink" title="组织架构想法"></a>组织架构想法</h1><p>以激发兴趣，锻炼计算机思维为主体，通过简易项目传输核心思想，不求全面地知识体系教学。<br>{:.info}</p><h2 id="从理论基础到创新实践"><a href="#从理论基础到创新实践" class="headerlink" title="从理论基础到创新实践"></a>从理论基础到创新实践</h2><ol><li>基本概念</li><li>不同领域核心思想*N<ol><li>小项目实践</li><li>现实应用</li></ol></li><li>不同应用领域*N</li><li>创新实践项目</li><li>安全伦理，未来畅想</li></ol><h2 id="多个具体应用领域切分"><a href="#多个具体应用领域切分" class="headerlink" title="多个具体应用领域切分"></a>多个具体应用领域切分</h2><p>很难避免 “机器学习甚至深度学习 约等于 人工智能” 的错误，但是好像大多数基础教学都默认这一个错误的概念</p><ol><li>基本概念</li><li>具体领域*N<ol><li>核心概念</li><li>简单项目实践</li><li>现实应用</li></ol></li><li>安全伦理，未来畅想</li></ol><h2 id="分两册两个实例"><a href="#分两册两个实例" class="headerlink" title="分两册两个实例"></a>分两册两个实例</h2><ol><li><p>具体实例1</p><ol><li>实例介绍</li><li>核心思想</li><li>实例实践</li><li>拓展</li></ol></li><li><p>具体实例2</p><ol><li>实例介绍</li><li>核心思想</li><li>实例实践</li><li>拓展</li></ol></li></ol><blockquote><p>ref: <a href="http://www.scicat.cn/p/20210530/5254617.html">http://www.scicat.cn/p/20210530/5254617.html</a></p><p>ref: <a href="http://47.95.242.172/thesis/view/4790384">http://47.95.242.172/thesis/view/4790384</a></p></blockquote>]]></content>
     
@@ -65,10 +86,14 @@
     
     
     
+    <category term="人工智能" scheme="https://hhhkkkhhh.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="人工智能" scheme="https://hhhkkkhhh.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="概论" scheme="https://hhhkkkhhh.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E6%A6%82%E8%AE%BA/"/>
+    
     
     <category term="机器学习" scheme="https://hhhkkkhhh.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="人工智能" scheme="https://hhhkkkhhh.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="杂七杂八" scheme="https://hhhkkkhhh.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
     
