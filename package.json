@@ -6,7 +6,9 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy --generate",
-    "server": "hexo server"
+    "release": "hexo deploy --generate",
+    "server": "hexo server",
+    "dev": "hexo server"
   },
   "hexo": {
     "version": "5.4.0"
