@@ -17,9 +17,11 @@ date: 2021-10-09 21:33:15
 * [ ] 前端框架通用学习思路
 * [ ] 基于 provider 的 flutter 应用封装
 * [ ] react hook 的组件抽象总结
+* [ ] 基于 VSCodium 的全集C插件开发
 
 # 科研向
 
 * [ ] 伪装目标识别综述
 * [ ] transformer 在扁平数据 embedding 任务上的应用尝试
 * [ ] 一个失败的质谱仪物质分类孪生网络
+* [ ] swin transformer 理解杂谈
