@@ -5,7 +5,7 @@
   --third-bg-color: #f5f5f5;
   --primary-text-color: #4a4a4a;
   --second-text-color: #4a4a4a;
-  --top-bar-bg-color: rgba(255, 255, 255, 0.8);
+  --top-bar-bg-color: rgba(240, 240, 240, 0.6);
   --border-line-color-2: rgba(0, 0, 0, 0.03);
   --border-line-color: rgba(0, 0, 0, 0.05);
   --blockquote-border-color: #dbdbdb;
@@ -37,7 +37,7 @@
   --third-bg-color: #f5f5f5;
   --primary-text-color: #4a4a4a;
   --second-text-color: #4a4a4a;
-  --top-bar-bg-color: rgba(255, 255, 255, 0.8);
+  --top-bar-bg-color: rgba(240, 240, 240, 0.6);
   --border-line-color-2: rgba(0, 0, 0, 0.03);
   --border-line-color: rgba(0, 0, 0, 0.05);
   --blockquote-border-color: #dbdbdb;
@@ -65,7 +65,7 @@
 
 :root {
   --backdropFilter: 20px;
-  --borderRadius: 6px;
+  --borderRadius: 8px;
   --activeColor: #3273dc;
   --boxShadow: 0 6px 30px -10px rgba(0, 0, 0, .1); }
   :root.appearance-dark, :root.appearance-auto, :root.appearance-light {
@@ -185,7 +185,7 @@ p.admonition-title {
   :root body .button.is-default {
     height: 40px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--second-text-color);
     background: var(--third-bg-color); }
   :root body > main {
